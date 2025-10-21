@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">GamesHub</string>
+    <string name="game_image">Imagen del juego</string>
+    <string name="increment_button">Incrementar</string>
+    <string name="reset_button">Reiniciar</string>
+    <string name="saludar">Hola Mundo!</string>
+
+    <string name="error_loading_games">Error al cargar los juegos</string>
+    <string name="retry">Reintentar</string>
+    <string name="filters">Filtros</string>
+    <string name="loading">Cargando...</string>
+    <string name="orderby">Ordenar por:</string>
+
+    <string name="no_games_found">No se encontraron juegos</string>
+    <string name="rating">Rating: %s</string>
+    <string name="released">Lanzamiento: %s</string>
+    <string name="platforms">Plataformas</string>
+    <string name="genres">Géneros</string>
+
+    <string name="platformsGame">Plataformas: %s</string>
+    <string name="genresGame">Géneros: %s</string>
+
+    <!-- NUEVOS STRINGS -->
+    <string name="clear">Limpiar</string>
+    <string name="apply">Aplicar</string>
+    <string name="back">Volver</string>
+    <string name="game_name">Nombre del Juego</string>
+    <string name="rating_default">Rating: 0.0</string>
+    <string name="release_default">Lanzamiento:</string>
+    <string name="genres_default">Géneros:</string>
+    <string name="platforms_default">Plataformas:</string>
+    <string name="stores_default">Disponible en:</string>
+    <string name="description_default">Descripción no disponible</string>
+    <string name="filter_name">Nombre del Filtro</string>
+    <string name="platforms_example">Plataformas: PC, PS5</string>
+    <string name="error_loading_filters">Error al cargar filtros</string>
+    <string name="loading_games">Cargando Juegos...</string>
+
+</resources>
