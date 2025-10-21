@@ -30,7 +30,6 @@ class GenresAdapter(
         holder.bind(genre, isSelected)
     }
 
-    // Versión corregida y eficiente
     fun getSelectedItems(): List<Int> {
         return selectedItems.toList()
     }

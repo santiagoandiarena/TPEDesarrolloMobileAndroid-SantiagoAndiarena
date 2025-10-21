@@ -58,7 +58,7 @@ data class GamesResponse(
 )
 
 data class PlatformResponse(
-    val results: List<Platform> // Para filtros - estructura simple
+    val results: List<Platform> // Para filtros
 )
 
 data class GenreResponse(

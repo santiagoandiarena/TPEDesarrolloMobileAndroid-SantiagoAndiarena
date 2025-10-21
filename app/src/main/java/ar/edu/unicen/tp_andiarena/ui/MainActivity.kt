@@ -11,13 +11,13 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ar.edu.unicen.tp_andiarena.R
 import ar.edu.unicen.tp_andiarena.databinding.ActivityMainBinding
 import ar.edu.unicen.tp_andiarena.ui.adapters.GamesAdapter
 import ar.edu.unicen.tp_andiarena.ui.viewmodels.GamesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val viewModel: GamesViewModel by viewModels()

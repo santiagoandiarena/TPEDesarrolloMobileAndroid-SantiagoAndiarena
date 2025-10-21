@@ -20,7 +20,6 @@
     <string name="platformsGame">Plataformas: %s</string>
     <string name="genresGame">Géneros: %s</string>
 
-    <!-- NUEVOS STRINGS -->
     <string name="clear">Limpiar</string>
     <string name="apply">Aplicar</string>
     <string name="back">Volver</string>
@@ -35,5 +34,8 @@
     <string name="platforms_example">Plataformas: PC, PS5</string>
     <string name="error_loading_filters">Error al cargar filtros</string>
     <string name="loading_games">Cargando Juegos...</string>
+    <string name="share">Compartir</string>
+    <string name="webSite">Sitio Web</string>
+
 
 </resources>

@@ -5,7 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import ar.edu.unicen.tp_andiarena.databinding.ActivityGameDetailBinding
 import ar.edu.unicen.tp_andiarena.ui.viewmodels.GameDetailViewModel
@@ -79,7 +78,7 @@ class GameDetailActivity : AppCompatActivity() {
             textGameRating.text = "Rating: ${game.rating}"
             textReleaseDate.text = "Lanzamiento: ${game.released ?: "No disponible"}"
 
-            // Sinopsis/ descripcion
+            //descripcion
             textDescription.text = game.description ?: "Sin descripción disponible"
 
             // Generos

@@ -49,16 +49,12 @@ class FiltersActivity : AppCompatActivity() {
         setupClickListeners()
     }
 
-    // En FiltersActivity.kt
-
     private fun setupRecyclerViews() {
-        // Adapter para plataformas - ahora usa Platform directamente
         platformsAdapter = PlatformsAdapter { platform, isSelected ->
             val currentSelection = platformsAdapter.getSelectedItems()
             viewModel.updatePlatforms(currentSelection)
         }
 
-        // Adapter para géneros
         genresAdapter = GenresAdapter { genre, isSelected ->
             val currentSelection = genresAdapter.getSelectedItems()
             viewModel.updateGenres(currentSelection)

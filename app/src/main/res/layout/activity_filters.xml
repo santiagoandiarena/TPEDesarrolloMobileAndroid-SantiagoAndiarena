@@ -46,7 +46,7 @@
             android:layout_marginBottom="4dp"
             android:textColor="@android:color/black" />
 
-        <!-- RecyclerView de plataformas con altura aumentada -->
+        <!-- RecyclerView de plataformas-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerPlatforms"
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:layout_marginBottom="4dp"
             android:textColor="@android:color/black" />
 
-        <!-- RecyclerView de géneros con altura aumentada -->
+        <!-- RecyclerView de géneros-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerGenres"
             android:layout_width="match_parent"
@@ -72,7 +72,7 @@
             android:layout_marginBottom="24dp"
             android:background="@android:color/white" />
 
-        <!-- Botones con menos margen -->
+        <!-- Botones-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

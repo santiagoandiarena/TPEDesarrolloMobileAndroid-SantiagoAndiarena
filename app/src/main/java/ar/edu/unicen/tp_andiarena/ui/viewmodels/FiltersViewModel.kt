@@ -18,7 +18,7 @@ class FiltersViewModel @Inject constructor(
     private val gameRepository: GameRepository
 ) : ViewModel() {
 
-    private val _platforms = MutableStateFlow<List<Platform>>(emptyList()) // CAMBIAR PlatformDetail por Platform
+    private val _platforms = MutableStateFlow<List<Platform>>(emptyList())
     val platforms: StateFlow<List<Platform>> = _platforms.asStateFlow()
 
     private val _genres = MutableStateFlow<List<Genre>>(emptyList())

@@ -3,7 +3,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import ar.edu.unicen.tp_andiarena.data.model.Game
 import ar.edu.unicen.tp_andiarena.data.model.GameFilters
-import ar.edu.unicen.tp_andiarena.data.model.GamesResponse
 import ar.edu.unicen.tp_andiarena.data.repository.GameRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,6 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 @HiltViewModel
 class GamesViewModel @Inject constructor(
     private val gameRepository: GameRepository,
@@ -96,9 +96,7 @@ class GamesViewModel @Inject constructor(
         _currentSearch.value = null // Limpiar búsqueda al aplicar filtros
         loadGames(filters)
     }
-    fun clearFilters() {
-        loadGames(GameFilters.DEFAULT)
-    }
+
     fun retry() {
         loadGames(
             filters = if (_currentSearch.value.isNullOrBlank()) _currentFilters.value else null,

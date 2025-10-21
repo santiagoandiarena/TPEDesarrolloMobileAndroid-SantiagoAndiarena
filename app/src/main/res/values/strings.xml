@@ -34,5 +34,10 @@
     <string name="platforms_example">Platforms: PC, PS5</string>
     <string name="error_loading_filters">Error loading filters</string>
     <string name="loading_games">Loading Games...</string>
+    <string name="share">Share</string>
+    <string name="webSite">Web Site</string>
+
+
+
 
 </resources>
