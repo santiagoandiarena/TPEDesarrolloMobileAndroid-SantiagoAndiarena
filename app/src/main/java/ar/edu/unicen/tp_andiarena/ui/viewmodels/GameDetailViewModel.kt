@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GameDetailViewModel @Inject constructor(
+class GameDetailViewModel @Inject constructor( //obtiene detalles de un juego
     private val gameRepository: GameRepository
 ) : ViewModel() {
 
@@ -29,7 +29,7 @@ class GameDetailViewModel @Inject constructor(
         viewModelScope.launch {
             _loading.value = true
             _error.value = null
-            try {
+            try { // Llama al repositorio para obtener los detalles por ID
                 val gameDetails = gameRepository.getGameDetails(gameId)
                 _game.value = gameDetails
             } catch (e: Exception) {

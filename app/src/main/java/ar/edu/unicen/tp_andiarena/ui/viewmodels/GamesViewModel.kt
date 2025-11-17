@@ -32,22 +32,26 @@ class GamesViewModel @Inject constructor(
     init {
         loadGames()
     }
-    fun loadGames(
+
+    fun loadGames( //gestiona el estado de la paginación
         filters: GameFilters? = null,
         loadMore: Boolean = false,
         search: String? = null
     ) {
-        if (isLoadingMore) return
+        if (isLoadingMore) return //si ya estamos cargando no hace nada
         viewModelScope.launch {
             if (!loadMore) {
+                // si es una carga nueva, resetea todoo
                 _loading.value = true
                 currentPage = 1
                 _games.value = emptyList()
             } else {
+                //paginacion en proceso
                 isLoadingMore = true
             }
             _error.value = null
             try {
+                //llama al repositorio pidiendo la pagina actual
                 val response = gameRepository.getGames(
                     page = currentPage,
                     pageSize = 20,
@@ -55,17 +59,18 @@ class GamesViewModel @Inject constructor(
                     search = search
                 )
                 if (loadMore) {
-// Agregar nuevos juegos a la lista existente
+                // si es paginacion, Agregar nuevos juegos a la lista existente
                     _games.value = _games.value + response.results
                 } else {
-// Nueva lista de juegos
+                //si es carga nueva, crea nueva lista de juegos
                     _games.value = response.results
                     if (search.isNullOrBlank()) {
                         _currentFilters.value = filters
                     }
                 }
-// Verificar si hay más páginas
+                // Verificar si hay más páginas
                 _canLoadMore.value = response.next != null
+                // Incrementa el contador de página para la próxima llamada
                 currentPage++
             } catch (e: Exception) {
                 _error.value = "Error al cargar juegos: ${e.message}"
@@ -76,16 +81,19 @@ class GamesViewModel @Inject constructor(
         }
     }
     fun loadMoreGames() {
+        // Solo carga más si canLoadMore es true y no estamos ya cargando
         if (_canLoadMore.value && !isLoadingMore) {
             loadGames(
                 filters = if (_currentSearch.value.isNullOrBlank()) _currentFilters.value else null,
-                loadMore = true,
+                loadMore = true, // Indica que es paginación
                 search = _currentSearch.value
             )
         }
     }
     fun searchGames(query: String?) {
         _currentSearch.value = query
+        // Llama a loadGames con el parámetro 'search'
+        // loadMore se pone en false (implícito) para reiniciar la lista
         loadGames(
             filters = if (query.isNullOrBlank()) _currentFilters.value else null,
             loadMore = false,

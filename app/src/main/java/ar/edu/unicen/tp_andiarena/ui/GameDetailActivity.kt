@@ -28,7 +28,7 @@ class GameDetailActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        val gameId = intent.getIntExtra("game_id", -1)
+        val gameId = intent.getIntExtra("game_id", -1) //recibe el id del juego
         if (gameId == -1) {
             finish()
             return
@@ -36,12 +36,12 @@ class GameDetailActivity : AppCompatActivity() {
 
         setupObservers()
         setupClickListeners()
-        viewModel.loadGameDetails(gameId)
+        viewModel.loadGameDetails(gameId) //inicia carga de detalles
     }
 
     private fun setupObservers() {
-        viewModel.game.onEach { game ->
-            game?.let {
+        viewModel.game.onEach { game -> // mira el stateflow del juego
+            game?.let { //cuando el juego se carga actualiza la UI
                 bindGameData(it)
                 setupActionButtons(it) // Configurar botones cuando el juego esté cargado
             }
@@ -72,7 +72,7 @@ class GameDetailActivity : AppCompatActivity() {
         }.launchIn(lifecycleScope)
     }
 
-    private fun bindGameData(game: ar.edu.unicen.tp_andiarena.data.model.Game) {
+    private fun bindGameData(game: ar.edu.unicen.tp_andiarena.data.model.Game) { //rellena la ui con los datos del juego
         binding.apply {
             textGameName.text = game.name
             textGameRating.text = "Rating: ${game.rating}"
@@ -128,7 +128,7 @@ class GameDetailActivity : AppCompatActivity() {
     }
 
     private fun shareGame(game: ar.edu.unicen.tp_andiarena.data.model.Game) {
-        val shareText = buildString {
+        val shareText = buildString { //construye el texto
             append("${game.name}\n\n")
             append("Rating: ${game.rating}\n")
             game.released?.let { append("Lanzamiento: $it\n") }
@@ -143,7 +143,7 @@ class GameDetailActivity : AppCompatActivity() {
         }
 
         val shareIntent = Intent().apply {
-            action = Intent.ACTION_SEND
+            action = Intent.ACTION_SEND //intent de compartir
             putExtra(Intent.EXTRA_TEXT, shareText)
             putExtra(Intent.EXTRA_SUBJECT, "Mira este videojuego: ${game.name}")
             type = "text/plain"

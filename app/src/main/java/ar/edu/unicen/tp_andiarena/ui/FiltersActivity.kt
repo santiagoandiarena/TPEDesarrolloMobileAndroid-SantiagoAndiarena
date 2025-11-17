@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
-class FiltersActivity : AppCompatActivity() {
+class FiltersActivity : AppCompatActivity() { //permite al usuario seleccionar plataformas, géneros y un orden, y luego devuelve esos filtros a MainActivity
 
     private val viewModel: FiltersViewModel by viewModels()
     private lateinit var binding: ActivityFiltersBinding
@@ -73,7 +73,7 @@ class FiltersActivity : AppCompatActivity() {
 
 
     private fun setupOrderingSpinner() {
-        val adapter = ArrayAdapter(
+        val adapter = ArrayAdapter( //configura opciones del adaptador del spinner
             this,
             android.R.layout.simple_spinner_item,
             orderingOptions.map { it.first }
@@ -142,7 +142,7 @@ class FiltersActivity : AppCompatActivity() {
             viewModel.retry()
         }
 
-        binding.buttonApply.setOnClickListener {
+        binding.buttonApply.setOnClickListener { //al pulsar aplicar devuelve los filtros seleccionados a MainActivity
             val filters = viewModel.getCurrentFilters()
             val resultIntent = Intent().apply {
                 putExtra("filters", filters)

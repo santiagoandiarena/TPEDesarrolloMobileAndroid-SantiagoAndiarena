@@ -28,8 +28,10 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == RESULT_OK) {
+            //obtiene los filtros
             val filters = result.data?.getParcelableExtra<ar.edu.unicen.tp_andiarena.data.model.GameFilters>("filters")
             filters?.let {
+                //aplica filtros en el ViewModel
                 viewModel.applyFilters(it)
             }
         }
@@ -55,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             },
             onLoadMore = {
+                // Cuando el Adapter llama a onLoadMore, este llama a loadMoreGames
                 viewModel.loadMoreGames()
             }
         )
@@ -122,7 +125,9 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
+            // se activa cada vez que cambia el texto de la busqueda
             override fun onQueryTextChange(newText: String?): Boolean {
+                // Llama al ViewModel con el nuevo texto de búsqueda
                 viewModel.searchGames(newText)
                 return true
             }
